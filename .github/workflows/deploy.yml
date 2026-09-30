@@ -21,7 +21,8 @@ jobs:
       - name: Prepare website only
         run: |
           mkdir -p public
-          cp index.html public/index.html
+          cp -- *.html public/
+          cp -R assets public/assets
       - uses: actions/configure-pages@v5
         with:
           enablement: true
