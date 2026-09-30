@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="assets/styles.css">
   <link rel="stylesheet" href="assets/motion.css">
   <link rel="stylesheet" href="assets/comparison.css">
+  <link rel="stylesheet" href="assets/loop.css">
+  <link rel="stylesheet" href="assets/loop.css">
 </head>
 <body>
   <header class="site-header">
@@ -43,6 +45,44 @@
           <label class="comparison-control"><span class="sr-only">Compare the illustrated room before and after clearance</span><input type="range" min="0" max="100" value="50" aria-valuetext="Halfway between before and after"><span class="comparison-knob" aria-hidden="true">↔</span></label>
         </div>
         <p class="comparison-note"><strong>Illustrated preview — not a client project.</strong> Every clear-out is different, so this is simply a friendly way to show the idea.</p>
+      </div>
+    </section>
+
+    <section class="section wrap loop-section" aria-labelledby="loop-title">
+      <div class="section-heading reveal">
+        <div><p class="eyebrow">Illustrated preview</p><h2 id="loop-title">A little visual<br><em>loop.</em></h2></div>
+        <p class="muted">Boxes take a ride, a friendly ghost waves goodbye, and a little more room appears. Hover to pause the scene.</p>
+      </div>
+      <div class="loop-card reveal">
+        <div class="loop-stage" tabindex="0" aria-label="Animated illustrated preview of boxes moving into a clearance truck while a ghost waves">
+          <svg class="loop-art" viewBox="0 0 900 390" role="img" aria-labelledby="loop-art-title loop-art-desc">
+            <title id="loop-art-title">Boxes on the way out</title>
+            <desc id="loop-art-desc">An illustrated clearance truck waits while two boxes travel along a path and a friendly ghost waves.</desc>
+            <path class="loop-sun" d="M690 48a70 70 0 1 0 0 140 70 70 0 0 0 0-140Z"/>
+            <path class="loop-cloud" d="M85 94q12-27 38-3 23-42 56 2 32-11 40 20H67q4-18 18-19Z"/>
+            <path class="loop-ground" d="M60 309q180-19 780 0"/>
+            <path class="loop-road" d="M85 310h690"/>
+            <g class="loop-truck">
+              <path d="M355 153h270v157H355z"/>
+              <path d="M625 197h77l44 59v54H625z"/>
+              <path class="loop-window" d="M642 211h48l25 35h-73z"/>
+              <path class="loop-bumper" d="M724 286h27v22h-34z"/>
+              <circle class="loop-wheel" cx="430" cy="317" r="27"/><circle class="loop-hub" cx="430" cy="317" r="10"/>
+              <circle class="loop-wheel" cx="663" cy="317" r="27"/><circle class="loop-hub" cx="663" cy="317" r="10"/>
+              <text x="390" y="207">CASPAR</text><text class="loop-small" x="391" y="225">CLEARANCE</text>
+              <path class="loop-door" d="M555 169v119h48V169"/>
+            </g>
+            <g class="loop-ghost">
+              <path d="M775 289V190q0-49 35-63 36 14 36 63v99q-13-15-25 0-12-17-24 0-11-17-22 0Z"/>
+              <circle cx="800" cy="195" r="5"/><circle cx="823" cy="195" r="5"/><path d="M803 214q9 10 18 0"/>
+              <path class="loop-wave" d="M835 226q35-23 25-48m0 0 12-8m-13 15 14 2m-16-10 5-13"/>
+            </g>
+            <g class="loop-box loop-box-one"><path d="M186 255h57v43h-57z"/><path d="M186 255l28-17 29 17m-29 0v43"/></g>
+            <g class="loop-box loop-box-two"><path d="M269 263h48v36h-48z"/><path d="m269 263 24-15 24 15m-24 0v36"/></g>
+            <path class="loop-spark" d="m120 210 5 12 12 5-12 5-5 12-5-12-12-5 12-5Zm92-39 4 9 9 4-9 4-4 9-4-9-9-4 9-4Z"/>
+          </svg>
+          <p class="loop-caption"><span>Illustrated preview</span><span>Hover or focus to pause</span></p>
+        </div>
       </div>
     </section>
 
