@@ -18,10 +18,28 @@
     reveal.forEach(el => observer.observe(el));
   } else reveal.forEach(el => el.classList.add('is-visible'));
   const clearSpace = document.querySelector('[data-clear-space]');
-  if (clearSpace) clearSpace.addEventListener('click', () => {
-    const active = clearSpace.getAttribute('aria-pressed') === 'true';
-    clearSpace.setAttribute('aria-pressed', String(!active));
-    clearSpace.innerHTML = active ? 'CLEAR<br>SPACE<br><span>→</span>' : 'SPACE<br>MADE<br><span>✓</span>';
-    document.querySelector('.hero-visual')?.classList.toggle('space-cleared', !active);
-  });
+  const heroVisual = document.querySelector('.hero-visual');
+  if (clearSpace) {
+    // Keep the button's state and its announcement in sync without relying on
+    // hover or pointer events (native button activation also covers keyboard).
+    const status = document.createElement('span');
+    status.className = 'motion-status';
+    status.setAttribute('role', 'status');
+    status.setAttribute('aria-live', 'polite');
+    status.setAttribute('aria-atomic', 'true');
+    clearSpace.insertAdjacentElement('afterend', status);
+
+    const setClearState = (cleared, announce = true) => {
+      clearSpace.setAttribute('aria-pressed', String(cleared));
+      clearSpace.innerHTML = cleared ? 'SPACE<br>MADE<br><span aria-hidden="true">✓</span>' : 'CLEAR<br>SPACE<br><span aria-hidden="true">→</span>';
+      clearSpace.setAttribute('aria-label', cleared ? 'Restore clear space illustration' : 'Clear space in illustration');
+      heroVisual?.classList.toggle('space-cleared', cleared);
+      if (announce) status.textContent = cleared ? 'Space made — the illustration is cleared.' : 'Clear space restored.';
+    };
+
+    setClearState(clearSpace.getAttribute('aria-pressed') === 'true', false);
+    clearSpace.addEventListener('click', () => {
+      setClearState(clearSpace.getAttribute('aria-pressed') !== 'true');
+    });
+  }
 })();

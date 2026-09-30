@@ -1,0 +1,115 @@
+/* Optional motion layer: index.html links this after styles.css. */
+.hero-visual .clearance-scene {
+  transform-origin: 50% 100%;
+}
+
+/* The scene enters once with the existing .reveal hook; no content is hidden
+   when JavaScript is unavailable because these rules only affect .is-visible. */
+.hero-visual.is-visible .clearance-scene {
+  animation: scene-arrive .8s cubic-bezier(.2,.75,.25,1) both;
+}
+.hero-visual.is-visible .ghost-back,
+.hero-visual.is-visible .ghost-arm,
+.hero-visual.is-visible .ghost-hand {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: ghost-float 4.8s ease-in-out .8s infinite;
+}
+.hero-visual.is-visible .ghost-eye,
+.hero-visual.is-visible .ghost-smile {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ghost-float 4.8s ease-in-out .8s infinite;
+}
+.hero-visual.is-visible .truck-body,
+.hero-visual.is-visible .truck-cab,
+.hero-visual.is-visible .truck-window,
+.hero-visual.is-visible .truck-line,
+.hero-visual.is-visible .truck-bumper,
+.hero-visual.is-visible .wheel,
+.hero-visual.is-visible .truck-logo,
+.hero-visual.is-visible .truck-text {
+  animation: truck-settle .65s cubic-bezier(.2,.75,.25,1) both;
+}
+
+.hero-visual.space-cleared .ghost-back,
+.hero-visual.space-cleared .ghost-arm,
+.hero-visual.space-cleared .ghost-hand,
+.hero-visual.space-cleared .ghost-eye,
+.hero-visual.space-cleared .ghost-smile {
+  opacity: .2;
+  transform: translateY(-8px) scale(.96);
+  animation: none;
+}
+.hero-visual.space-cleared .box,
+.hero-visual.space-cleared .box-tape,
+.hero-visual.space-cleared .box-flap {
+  opacity: .15;
+  transform: translateY(-18px) rotate(-4deg);
+  transition: opacity .35s ease, transform .35s ease;
+}
+.hero-visual .ghost-back,
+.hero-visual .ghost-arm,
+.hero-visual .ghost-hand,
+.hero-visual .ghost-eye,
+.hero-visual .ghost-smile,
+.hero-visual .box,
+.hero-visual .box-tape,
+.hero-visual .box-flap {
+  transition: opacity .35s ease, transform .35s ease;
+}
+.hero-visual.space-cleared .visual-sticker {
+  transform: rotate(0) scale(1.05);
+}
+.motion-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@keyframes scene-arrive {
+  from { opacity: 0; transform: translateY(18px) scale(.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes truck-settle {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes ghost-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-visual.is-visible .clearance-scene,
+  .hero-visual.is-visible .ghost-back,
+  .hero-visual.is-visible .ghost-arm,
+  .hero-visual.is-visible .ghost-hand,
+  .hero-visual.is-visible .ghost-eye,
+  .hero-visual.is-visible .ghost-smile,
+  .hero-visual.is-visible .truck-body,
+  .hero-visual.is-visible .truck-cab,
+  .hero-visual.is-visible .truck-window,
+  .hero-visual.is-visible .truck-line,
+  .hero-visual.is-visible .truck-bumper,
+  .hero-visual.is-visible .wheel,
+  .hero-visual.is-visible .truck-logo,
+  .hero-visual.is-visible .truck-text,
+  .hero-visual.space-cleared .ghost-back,
+  .hero-visual.space-cleared .ghost-arm,
+  .hero-visual.space-cleared .ghost-hand,
+  .hero-visual.space-cleared .ghost-eye,
+  .hero-visual.space-cleared .ghost-smile,
+  .hero-visual.space-cleared .box,
+  .hero-visual.space-cleared .box-tape,
+  .hero-visual.space-cleared .box-flap {
+    animation: none;
+    transition: none;
+  }
+}
